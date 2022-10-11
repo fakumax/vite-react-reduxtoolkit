@@ -10,7 +10,7 @@ import { decrementEve, incrementEve } from '../redux/eve/eveSlice';
 
 const Home = () => {
   const user = useSelector((state) => state.users.value);
-  const eve = useSelector((state) => state.eve.value);
+  const every = useSelector((state) => state.eve.value);
 
   const dispatch = useDispatch();
 
@@ -34,7 +34,7 @@ const Home = () => {
           </button>
         </div>
         <div>
-          <span>Eve result : {eve}</span>
+          <span>Eve result : {every}</span>
           <div>
             <button
               aria-label='Increment uEves'

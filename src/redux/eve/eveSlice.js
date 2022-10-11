@@ -8,6 +8,12 @@ export const eveSlice = createSlice({
   name: 'eve',
   initialState,
   reducers: {
+    getEvery: (state, { payload }) => {
+      return {
+        ...state,
+        every: payload.id,
+      };
+    },
     incrementEve: (state) => {
       state.value += 1;
     },
@@ -21,7 +27,7 @@ export const eveSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { incrementEve, decrementEve, incrementEveByAmount } =
+export const { getEvery, incrementEve, decrementEve, incrementEveByAmount } =
   eveSlice.actions;
 
 export default eveSlice.reducer;
