@@ -1,57 +1,22 @@
-import React, { useState } from 'react';
-import reactLogo from './assets/react.svg';
-import './App.css';
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { Routes, Route, Outlet, Link } from 'react-router-dom';
 
-/* Redux */
-import { useSelector, useDispatch } from 'react-redux';
-import { decrementUsers, incrementUsers } from './redux/users/usersSlice';
-import { decrementEve, incrementEve } from './redux/eve/eveSlice';
+import Home from './components/Home';
+import Test from './components/test';
 
 const App = () => {
-  const user = useSelector((state) => state.users.value);
-  const eve = useSelector((state) => state.eve.value);
-
-  const dispatch = useDispatch();
-
+  console.log('wacho test');
   return (
-    <div className='App'>
-      <div>
-        <span>user result : {user}</span>
-        <div>
-          <button
-            aria-label='Increment uUsers'
-            onClick={() => dispatch(incrementUsers())}
-          >
-            Increment User
-          </button>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='/test' element={<Test />} />
 
-          <button
-            aria-label='Decrement uUsers'
-            onClick={() => dispatch(decrementUsers())}
-          >
-            Decrement user
-          </button>
-        </div>
-        <div>
-          <span>Eve result : {eve}</span>
-          <div>
-            <button
-              aria-label='Increment uEves'
-              onClick={() => dispatch(incrementEve())}
-            >
-              Increment Eve
-            </button>
-
-            <button
-              aria-label='Decrement uEves'
-              onClick={() => dispatch(decrementEve())}
-            >
-              Decrement Eve
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
+      {/* Using path="*"" means "match anything", so this route
+          acts like a catch-all for URLs that we don't have explicit
+          routes for. */}
+      {/* <Route path='*' element={<NoMatch />} /> */}
+    </Routes>
   );
 };
 
