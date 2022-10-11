@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
   value: 0,
+  every: '',
 };
 
 export const eveSlice = createSlice({
@@ -12,6 +13,7 @@ export const eveSlice = createSlice({
       return {
         ...state,
         every: payload.id,
+        wara: payload.id,
       };
     },
     incrementEve: (state) => {
